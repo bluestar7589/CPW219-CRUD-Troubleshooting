@@ -1,18 +1,21 @@
-﻿namespace CPW219_CRUD_Troubleshooting.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace CPW219_CRUD_Troubleshooting.Models
 {
     public static class StudentDb
     {
-        public static Student Add(Student p, SchoolContext db)
+        public static async Task<Student> Add(Student p, SchoolContext db)
         {
             //Add student to context
             db.Students.Add(p);
+            await db.SaveChangesAsync();
             return p;
         }
 
-        public static List<Student> GetStudents(SchoolContext context)
+        public static async Task<List<Student>> GetStudents(SchoolContext context)
         {
-            return (from s in context.Students
-                    select s).ToList();
+            return await (from s in context.Students
+                    select s).ToListAsync();
         }
 
         public static Student GetStudent(SchoolContext context, int id)
@@ -24,18 +27,21 @@
             return p2;
         }
 
-        public static void Delete(SchoolContext context, Student p)
-        {
-            context.Students.Update(p);
-        }
-
-        public static void Update(SchoolContext context, Student p)
+        public static async Task Delete(SchoolContext context, Student p)
         {
             //Mark the object as deleted
             context.Students.Remove(p);
-
             //Send delete query to database
-            context.SaveChanges();
+            await context.SaveChangesAsync();
+        }
+
+        public static async Task Update(SchoolContext context, Student p)
+        {
+            // Mark the object to update
+            context.Students.Update(p);
+
+            //Send upadte query to database
+            await context.SaveChangesAsync();
         }
     }
 }
