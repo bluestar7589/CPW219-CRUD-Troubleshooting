@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if (ViewData["Message"] != null)
+{
+    <h1>@ViewData["Message"]</h1>    
+}
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+@if(Model != null && Model.Any()) {
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new {  id=item.StudentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+} 
+else
+{
+    <h1>@ViewData["Message"]</h1>
+}

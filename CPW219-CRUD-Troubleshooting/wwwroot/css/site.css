@@ -16,3 +16,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*For index/create/update*/
+.striped-hover .form-group:nth-child(odd) {
+    background-color: #f8f9fa; /* Light color for alternating rows */
+}
+
+.striped-hover .form-group:nth-child(even) {
+    background-color: #e9ecef; /* Slightly darker color for alternating rows */
+}
+
+.striped-hover .form-group:hover {
+    background-color: #d1e7dd; /* Hover effect color */
+}
+
+.striped-hover .form-group {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* For delete*/
+.striped-hover dt, .striped-hover dd {
+    padding: 0.5rem;
+}
+
+.striped-hover dt:nth-child(4n+1), .striped-hover dd:nth-child(4n+2) {
+    background-color: #f8f9fa; /* Light color for alternating rows */
+}
+
+.striped-hover dt:nth-child(4n+3), .striped-hover dd:nth-child(4n+4) {
+    background-color: #e9ecef; /* Slightly darker color for alternating rows */
+}
+
+.striped-hover dt:hover, .striped-hover dd:hover {
+    background-color: #d1e7dd; /* Hover effect color */
+}

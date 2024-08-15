@@ -1,0 +1,54 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" class="striped-hover">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" type="date" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@* <style>
+    .striped-hover .form-group:nth-child(odd) {
+        background-color: #f8f9fa; /* Light color for alternating rows */
+    }
+    .striped-hover .form-group:nth-child(even) {
+        background-color: #e9ecef; /* Slightly darker color for alternating rows */
+    }
+    .striped-hover .form-group:hover {
+        background-color: #d1e7dd; /* Hover effect color */
+    }
+    .striped-hover .form-group {
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+    }
+</style> *@

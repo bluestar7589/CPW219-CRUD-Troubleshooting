@@ -1,0 +1,53 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row striped-hover">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+@* <style>
+    .striped-hover dt, .striped-hover dd {
+        padding: 0.5rem;
+    }
+    .striped-hover dt:nth-child(4n+1), .striped-hover dd:nth-child(4n+2) {
+        background-color: #f8f9fa; /* Light color for alternating rows */
+    }
+    .striped-hover dt:nth-child(4n+3), .striped-hover dd:nth-child(4n+4) {
+        background-color: #e9ecef; /* Slightly darker color for alternating rows */
+    }
+    .striped-hover dt:hover, .striped-hover dd:hover {
+        background-color: #d1e7dd; /* Hover effect color */
+    }
+</style> *@
